@@ -263,7 +263,7 @@ class Tree{
                 }
                     sib.color = node.parent.color
                     node.parent.color = 'black'
-                    uncle.right.color = "black"
+                    sib.right.color = "black"
                     this.leftRotate(node.parent)
                     node = this.root
                     
