@@ -242,26 +242,26 @@ class Tree{
     RBDeleteFixup(node){
         while(node.color === "black" && node.parent !== this.root){
             if(node.parent.left === node){
-                let uncle = node.parent.right
-                if(uncle.color === "red"){
-                    uncle.color = "black"
+                let sib = node.parent.right
+                if(sib.color === "red"){
+                    sib.color = "black"
                     node.parent.color="red"
                     this.leftRotate(node.parent)
-                    uncle = node.parent.right
+                    sib = node.parent.right
                 }
                 
-                if(uncle.left.color === "black" && uncle.right.color==="black"){
-                    uncle.color = "red"
+                if(sib.left.color === "black" && sib.right.color==="black"){
+                    sib.color = "red"
                     node = node.parent
                 } 
                 else {
-                if(uncle.right.color ==="black"){
-                    uncle.left.color = "black"
-                    uncle.color="red"
-                    this.rightRotate(uncle)
-                    uncle = node.parent.right
+                if(sib.right.color ==="black"){
+                    sib.left.color = "black"
+                    sib.color="red"
+                    this.rightRotate(sib)
+                    sib = node.parent.right
                 }
-                    uncle.color = node.parent.color
+                    sib.color = node.parent.color
                     node.parent.color = 'black'
                     uncle.right.color = "black"
                     this.leftRotate(node.parent)
@@ -270,26 +270,26 @@ class Tree{
                 }
                 
             } else {
-                  let uncle = node.parent.left
-                  if(uncle.color === 'red'){
-                      uncle.color = 'black'
+                  let sib = node.parent.left
+                  if(sib.color === 'red'){
+                      sib.color = 'black'
                       node.parent.color = 'red'
                       this.rightRotate(node.parent)
-                      uncle = node.parent.left
+                      sib = node.parent.left
                   }
-                if(uncle.left.color === "black" && uncle.right.color==="black"){
-                    uncle.color = "red"
+                if(sib.left.color === "black" && sib.right.color==="black"){
+                    sib.color = "red"
                     node = node.parent
                 }        else {
-                if(uncle.left.color ==="black"){
-                    uncle.right.color = "black"
-                    uncle.color="red"
-                    this.leftRotate(uncle)
-                    uncle = node.parent.left
+                if(sib.left.color ==="black"){
+                    sib.right.color = "black"
+                    sib.color="red"
+                    this.leftRotate(sib)
+                    sib = node.parent.left
                 }
-                    uncle.color = node.parent.color
+                    sib.color = node.parent.color
                     node.parent.color = 'black'
-                    uncle.left.color = "black"
+                    sib.left.color = "black"
                     this.rightRotate(node.parent)
                     node = this.root
                     
