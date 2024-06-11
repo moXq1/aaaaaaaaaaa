@@ -214,7 +214,7 @@ class Tree{
             x = node.right
             this.transplant(node,node.right)
             
-        } else if(1node.right){
+        } else if(!node.right){
                  x = node.left
             this.transplant(node,node.left)
         } else {
